@@ -1,9 +1,15 @@
-Messages = new Mongo.Collection('messages');
-
 if (Meteor.isClient) {
+    Meteor.subscribe("messages");
+
     Template.body.helpers({
         messages: function () {
             return Messages.find();
+        }
+    });
+
+    Template.submittedMessage.helpers({
+        isOwner: function () {
+            return this.owner === Meteor.userId();
         }
     });
 
@@ -11,10 +17,7 @@ if (Meteor.isClient) {
         'submit .newMessage' : function (event) {
             var messageContent = event.target.messageContent.value;
 
-            Messages.insert({
-                messageContent: messageContent,
-                createdAt: new Date()
-            });
+            Meteor.call('addMessage', messageContent);
 
             event.target.messageContent.value = "";
 
@@ -24,12 +27,8 @@ if (Meteor.isClient) {
 
     Template.submittedMessage.events({
         'click .delete' : function () {
-            Messages.remove(this._id);
+           Meteor.call('deleteMessage', this._id)
         }
-    });
-
-    Template.body.helpers({
-        locations: "{{> location}}"
     });
 
     Template.registerHelper('formatDate', function(date) {
@@ -40,4 +39,21 @@ if (Meteor.isServer) {
     Meteor.startup(function () {
 
     });
+
+    Meteor.publish("messages", function () {
+        return Messages.find();
+    })
 }
+
+Meteor.methods({
+   addMessage: function (messageContent) {
+       Messages.insert({
+           messageContent: messageContent,
+           createdAt: new Date(),
+           owner: Meteor.userId()
+       });
+   },
+    deleteMessage: function (id) {
+        Messages.remove(id);
+    }
+});

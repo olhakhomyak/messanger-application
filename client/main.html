@@ -5,23 +5,34 @@
 <body>
     <div class="container-fluid">
 
+        <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons}}
+        </ul>
+
+
+
+        {{#each locations}}
+            {{> location}}
+        {{/each}}
+
+
         <div class="row">
             <div class="col-md-12">
                 {{> newMessage}}
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                {{#each messages}}
-                    {{> submittedMessage}}
-                {{/each}}
-            </div>
-        </div>
 
-        <!--{{#each locations}}-->
-            <!--{{> location}}-->
-        <!--{{/each}}-->
+
+        {{#if currentUser}}
+            <div class="row">
+                <div class="col-md-12">
+                    {{#each messages}}
+                        {{> submittedMessage}}
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
 
     </div>
 </body>
