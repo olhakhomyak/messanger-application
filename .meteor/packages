@@ -20,6 +20,10 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 twbs:bootstrap
 momentjs:moment
+accounts-base
 accounts-password
-iron:router
-mrt:accounts-ui-bootstrap-dropdown
+useraccounts:unstyled
+raix:handlebar-helpers
+session
+
+aldeed:template-extension
