@@ -4,40 +4,45 @@
 
 <body>
     <div class="container-fluid">
-{{#if currentUser}}
+
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    {{#if currentUser}}
                         <span class="logout">
                             Logout
                         </span>
-                        <span class="login-toggle">
+                        <span class="update-toggle">
                             Update profile
                         </span>
+                    {{/if}}
                 </div>
             </div>
         </nav>
 
-        {{>loginModal}}
-
-
-{{>users}}
-
+{{#if currentUser}}
         <div class="row">
             <div class="col-md-12">
                 {{> newMessage}}
             </div>
         </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    {{#each messages}}
-                        {{> submittedMessage}}
-                    {{/each}}
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{#each messages}}
+                    {{> submittedMessage}}
+                {{/each}}
             </div>
+        </div>
+
+    {{> updateProfile}}
 {{/if}}
 
-        {{>atForm}}
+
+
+{{#unless currentUser}}
+        {{> loginForm}}
+{{/unless}}
+
     </div>
 </body>

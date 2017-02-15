@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
     Template.body.events({
-        'click .close-login': ()=> {
+        'click .close-update': ()=> {
             Session.set('nav-toggle', '');
         }
     });

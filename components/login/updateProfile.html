@@ -1,3 +1,6 @@
 <template name="updateProfile">
-
+    <div class="update-modal {{$.Session.get 'nav-toggle'}}">
+        <i class="fa fa-close close-update"></i>
+        {{> atForm state="changePwd" }}
+    </div>
 </template>
