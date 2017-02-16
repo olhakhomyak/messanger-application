@@ -5,7 +5,12 @@
                 <div class="message-item">
                     <div class="row">
                         <div class="col-md-8">
-                            {{messageContent}}
+                            <div class="row">
+                                {{messageContent}}
+                            </div>
+                            <div class="row">
+                                {{userData}}
+                            </div>
                         </div>
                         <div class="col-md-4">
                             {{#if isOwner}}

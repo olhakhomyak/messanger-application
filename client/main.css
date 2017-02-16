@@ -1,3 +1,25 @@
+body {
+    background-color: #3c7676;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-header {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.navbar-header span:hover {
+    color: #878787;
+    cursor: pointer;
+}
+
+.navbar-header span {
+    margin: auto 15px;
+}
+
 .messages-container{
     margin-bottom: 10px;
 }
@@ -5,12 +27,12 @@
 .message-item {
     width: 100%;
     height: auto;
-    padding: 25px;
+    padding: 35px;
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
-    border-radius: 35px;
+    border-radius: 45px;
     position: relative;
-    border: 1px solid #fff;
+    border: 3px solid #fff;
     margin: 20px;
 }
 .message-item:after {
@@ -25,13 +47,13 @@
 }
 
 .messages-container .message-item{
-    border-color: #F0AD4E;
-    color: #d58512;
-    background-color: rgba(240, 173, 78, 0.1);
+    border-color: #bcbcbc;
+    color: #878787;
+    background-color: #fcfcfc;
 }
 
 .messages-container .message-item:after{
-    border-top-color: #F0AD4E;
+    border-top-color: #bcbcbc;
 }
 
 .newMessage {
@@ -46,11 +68,18 @@
     box-shadow: none;
     padding-right: 80px;
     font-size: 1em;
-    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
 }
 
 .newMessage input:focus{
     outline: 0;
+}
+
+.submit-new-message,
+.submit-new-message:hover {
+    padding-top: 20px;
+    color: #fff;
 }
 
 .update-modal {
@@ -89,4 +118,9 @@
 
 .at-input {
     margin-bottom: 10px;
+}
+
+.newMessage {
+    display: flex;
+    padding-left: 25px;
 }
