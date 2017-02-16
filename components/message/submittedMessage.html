@@ -6,16 +6,19 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row">
-                                {{messageContent}}
+                                Created by: {{userData.profile.firstName}}
+                                At {{messageLocation}}
                             </div>
                             <div class="row">
-                                {{userData}}
+                                {{messageContent}}
                             </div>
                         </div>
                         <div class="col-md-4">
                             {{#if isOwner}}
                                 <div class="row">
-                                    <button style="color: darkred;" class="btn btn-link delete pull-right">X</button>
+                                    <button type="button" class="close delete" data-dismiss="modal" aria-label="Close">
+                                        <span class="text-danger" aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             {{/if}}
                             <div class="row">

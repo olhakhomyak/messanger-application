@@ -1,9 +1,7 @@
 if (Meteor.isClient) {
     Template.submittedMessage.helpers({
-        userData: function (owner) {
-            var user = Meteor.users.findOne({'_id': this.owner});
-
-            return user;
+        userData: function () {
+           return Meteor.users.findOne({'_id': this.owner});
         }
     });
 }

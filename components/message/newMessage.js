@@ -16,7 +16,6 @@ if (Meteor.isClient) {
     Template.body.events({
         'submit .newMessage' : function (event) {
             var messageContent = event.target.messageContent.value;
-
             Meteor.call('addMessage', messageContent);
 
             event.target.messageContent.value = "";
@@ -50,7 +49,8 @@ Meteor.methods({
        Messages.insert({
            messageContent: messageContent,
            createdAt: new Date(),
-           owner: Meteor.userId()
+           owner: Meteor.userId(),
+           messageLocation: Meteor.user().profile.city
        });
    },
     deleteMessage: function (id) {

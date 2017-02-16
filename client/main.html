@@ -9,11 +9,15 @@
             <div class="navbar-header">
                 {{#if currentUser}}
                     <span class="logout">
-                                Logout
-                            </span>
-                    <span class="update-toggle">
-                                Update profile
-                            </span>
+                        Logout
+                    </span>
+                    <span data-toggle="modal" data-target="#changePassword">
+                        Change password
+                    </span>
+                    <span data-toggle="modal" data-target="#changeLocation">
+                        Update city
+                    </span>
+                    <span>Current city: {{currentUser.profile.city}}</span>
                 {{/if}}
             </div>
         </div>
@@ -36,6 +40,8 @@
         </div>
 
     {{> updateProfile}}
+
+    {{> updateCity}}
 {{/if}}
 
 
