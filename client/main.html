@@ -3,28 +3,48 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                {{#if currentUser}}
-                    <span class="logout">
-                        Logout
+        <h4 class="brand display-inline">
+            Messanger
+        </h4>
+        {{#if currentUser}}
+            <ul class="nav display-inline">
+                <li class="dropdown">
+                    <span class="dropdown-toggle account-menu"
+                          data-toggle="dropdown">
+                        Account<b class="caret"></b>
                     </span>
-                    <span data-toggle="modal" data-target="#changePassword">
-                        Change password
-                    </span>
-                    <span data-toggle="modal" data-target="#changeLocation">
-                        Update city
-                    </span>
-                    <span>Current city: {{currentUser.profile.city}}</span>
-                {{/if}}
+                    <ul class="dropdown-menu">
+                        <li>
+                            <span data-toggle="modal"
+                                  data-target="#changePassword">
+                                Change password
+                            </span>
+                        </li>
+                        <li>
+                             <span data-toggle="modal"
+                                   data-target="#changeLocation">
+                                Update city
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="display-inline">
+                Current city:
+                <span class="location-name">{{currentUser.profile.city}}</span>
             </div>
-        </div>
+            <ul class="nav pull-right display-inline">
+                <li class="logout">
+                    Logout
+                </li>
+            </ul>
+        {{/if}}
     </nav>
 
-    <div class="container-fluid">
+
 {{#if currentUser}}
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 {{> newMessage}}
@@ -39,16 +59,15 @@
             </div>
         </div>
 
+<!--Modal windows-->
     {{> updateProfile}}
-
     {{> updateCity}}
+    </div>
 {{/if}}
 
 
+{{#if $not currentUser}}
+    {{> loginForm}}
+{{/if}}
 
-{{#unless currentUser}}
-        {{> loginForm}}
-{{/unless}}
-
-    </div>
 </body>
