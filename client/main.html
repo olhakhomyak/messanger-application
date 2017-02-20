@@ -7,9 +7,19 @@
         <h4 class="brand display-inline">
             Messanger
         </h4>
+
         {{#if currentUser}}
-            <ul class="nav display-inline">
-                <li class="dropdown">
+            <div class="display-inline user-greeting">
+                Welcome, {{currentUser.profile.firstName}} {{currentUser.profile.lastName}}.
+                Your current location is <span class="location-name">{{currentUser.profile.city}}.</span>
+            </div>
+            <ul class="nav pull-right display-inline">
+                <li class="logout">
+                    Logout
+                </li>
+            </ul>
+            <ul class="nav  pull-right display-inline">
+                <li class="dropdown account-dropdown">
                     <span class="dropdown-toggle account-menu"
                           data-toggle="dropdown">
                         Account<b class="caret"></b>
@@ -17,26 +27,19 @@
                     <ul class="dropdown-menu">
                         <li>
                             <span data-toggle="modal"
-                                  data-target="#changePassword">
+                                  data-target="#updatePassword"
+                                  class="openPasswordModal">
                                 Change password
                             </span>
                         </li>
                         <li>
                              <span data-toggle="modal"
-                                   data-target="#changeLocation">
-                                Update city
+                                   data-target="#updateProfile"
+                                   class="openProModal">
+                                Update profile
                             </span>
                         </li>
                     </ul>
-                </li>
-            </ul>
-            <div class="display-inline">
-                Current city:
-                <span class="location-name">{{currentUser.profile.city}}</span>
-            </div>
-            <ul class="nav pull-right display-inline">
-                <li class="logout">
-                    Logout
                 </li>
             </ul>
         {{/if}}
@@ -44,13 +47,7 @@
 
 
 {{#if currentUser}}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                {{> newMessage}}
-            </div>
-        </div>
-
+    <div class="container-fluid wrapper">
         <div class="row">
             <div class="col-md-12">
                 {{#each messages}}
@@ -59,9 +56,15 @@
             </div>
         </div>
 
+        <div class="row new-message-container">
+            <div class="col-md-12">
+                {{> newMessage}}
+            </div>
+        </div>
+
 <!--Modal windows-->
+    {{> updatePassword}}
     {{> updateProfile}}
-    {{> updateCity}}
     </div>
 {{/if}}
 

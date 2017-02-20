@@ -3,9 +3,19 @@ if (Meteor.isClient) {
         checkLocation: function () {
             return Meteor.user().profile.city == this.messageLocation;
         },
-        userData: function () {
-           return Meteor.users.findOne({_id: this.owner});
+        isOwner: function () {
+            return this.owner === Meteor.userId();
+        },
+    });
+
+    Template.submittedMessage.events({
+        'click .delete' : function () {
+            Meteor.call('deleteMessage', this._id)
         }
+    });
+
+    Template.registerHelper('formatDate', function(date) {
+        return moment(date).format('HH:mm, DD.MM.YYYY');
     });
 }
 
@@ -13,4 +23,14 @@ if (Meteor.isServer) {
     Meteor.startup(function () {
 
     });
+
+    Meteor.publish("messages", function () {
+        return Messages.find();
+    })
 }
+
+Meteor.methods({
+    deleteMessage: function (id) {
+        Messages.remove(id);
+    }
+});

@@ -1,0 +1,210 @@
+body {
+  background-color: #3c7676;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  .wrapper {
+    max-height: 80vh;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    bottom: 100px;
+  }
+
+  .display-inline {
+    display: inline-block;
+  }
+
+  .navbar {
+    border-radius: 0;
+    border-bottom: 2px solid #bcbcbc;
+    z-index: 1000;
+
+    .brand {
+      padding: 10px 20px;
+      border-right: 2px solid #000;
+    }
+
+    .location-name {
+      text-transform: capitalize;
+      margin-left: 0;
+    }
+
+    .logout {
+      padding: 20px 35px 20px 20px;
+    }
+
+    .account-dropdown {
+      padding: 20px 0;
+    }
+
+    .account-menu:hover,
+    ul li span:hover,
+    .logout:hover {
+      color: #878787;
+      cursor: pointer;
+    }
+
+    ul li {
+      padding: 5px;
+    }
+
+    span {
+      margin: auto 15px;
+    }
+  }
+
+  .updateProfile {
+    label {
+      margin-bottom: 15px;
+      margin-right: 20px;
+      width: 130px;
+    }
+
+    label:last-child {
+      margin-bottom: 0;
+    }
+
+    input {
+      width: 300px;
+    }
+  }
+
+  .form-container {
+    padding-right: 0;
+  }
+
+  .new-message-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .messages-container {
+    margin-bottom: 10px;
+
+    .message-item {
+      width: 100%;
+      height: auto;
+      padding: 35px;
+      margin: 20px;
+      position: relative;
+      -webkit-border-radius: 35px;
+      -moz-border-radius: 35px;
+      border-radius: 45px;
+      border: 3px solid #bcbcbc;
+      color: #878787;
+      background-color: #fcfcfc;
+
+      &:after {
+        top: 100%;
+        left: 50px;
+        content: " ";
+        border: solid transparent;
+        position: absolute;
+        border-top-color: #bcbcbc;
+        border-width: 15px;
+        margin-left: -15px;
+      }
+    }
+
+    .delete {
+      font-size: 24px;
+      padding: 0 10px;
+      color: #db0d0d;
+    }
+
+    .location-name {
+      text-transform: capitalize;
+    }
+
+    .message-description {
+      font-size: 13px;
+    }
+  }
+
+  .message-content {
+    color: #000;
+  }
+
+  .newMessage {
+    display: flex;
+    padding-left: 25px;
+  }
+
+  .newMessage,
+  .user-greeting {
+    margin: 20px;
+
+    input[type="text"] {
+      padding: 20px 10px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding-right: 80px;
+      font-size: 1em;
+      border-bottom: 1px solid #ffffff;
+      color: #ffffff;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .submit-new-message,
+  .submit-new-message:hover {
+    padding-top: 20px;
+    color: #fff;
+  }
+
+  #loginForm .at-form {
+    .at-input,
+    .at-signup-link,
+    .at-signin-link,
+    .at-pwd-form .btn-primary {
+      margin-left: 30px;
+    }
+
+    .at-pwd-form .btn-primary {
+      width: 90%;
+      margin-bottom: 10px;
+    }
+
+    .at-pwd-form .btn-secondary {
+      display: none;
+    }
+  }
+
+ #updatePassword .modal-content,
+ #loginForm .at-form,
+ #updateProfile .modal-content {
+    width: 550px;
+    background-color: #f8f8f8;
+    border: 3px solid #bcbcbc;
+    border-radius: 7px;;
+    margin-top: 75px;
+
+    .at-title, h3 {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .at-input {
+      label {
+        width: 130px;
+        margin-bottom: 15px;
+      }
+
+      label:last-child {
+        margin-bottom: 0;
+      }
+
+      input {
+        width: 350px;
+      }
+    }
+  }
+}

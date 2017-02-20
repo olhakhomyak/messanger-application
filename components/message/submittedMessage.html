@@ -6,24 +6,22 @@
                     <div class="message-item">
                         <div class="row">
                             <div class="col-md-8">
-                                <div class="row">
-                                    Created by: {{userData.profile.firstName}}
-                                    At {{messageLocation}}
+                                <div class="row message-description">
+                                    Created by {{ownerFirstName}} {{ownerLastName}}
+                                    at <span class="location-name">{{messageLocation}}</span>,
+                                    <span>{{formatDate createdAt}}</span>
                                 </div>
                                 <div class="row message-content">
                                     {{messageContent}}
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                {{#if isOwner}}
-                                    <div class="row">
-                                        <button type="button" class="close delete" data-dismiss="modal" aria-label="Close">
-                                            <span class="text-danger" aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                {{/if}}
                                 <div class="row">
-                                    <span class="pull-right">{{formatDate createdAt}}</span>
+                                    {{#if isOwner}}
+                                        <button type="button" class="close delete pull-right" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>

@@ -7,41 +7,20 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.submittedMessage.helpers({
-        isOwner: function () {
-            return this.owner === Meteor.userId();
-        }
-    });
-
     Template.body.events({
         'submit .newMessage' : function (event) {
             var messageContent = event.target.messageContent.value;
             Meteor.call('addMessage', messageContent);
-
             event.target.messageContent.value = "";
 
             return false;
         }
-    });
-
-    Template.submittedMessage.events({
-        'click .delete' : function () {
-           Meteor.call('deleteMessage', this._id)
-        }
-    });
-
-    Template.registerHelper('formatDate', function(date) {
-        return moment(date).format('HH:mm DD.MM.YYYY');
     });
 }
 if (Meteor.isServer) {
     Meteor.startup(function () {
 
     });
-
-    Meteor.publish("messages", function () {
-        return Messages.find();
-    })
 }
 
 Meteor.methods({
@@ -50,10 +29,9 @@ Meteor.methods({
            messageContent: messageContent,
            createdAt: new Date(),
            owner: Meteor.userId(),
-           messageLocation: Meteor.user().profile.city
+           messageLocation: Meteor.user().profile.city,
+           ownerFirstName: Meteor.user().profile.firstName,
+           ownerLastName: Meteor.user().profile.lastName,
        });
-   },
-    deleteMessage: function (id) {
-        Messages.remove(id);
-    }
+   }
 });

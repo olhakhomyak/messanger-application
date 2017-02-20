@@ -1,12 +1,58 @@
 <template name="updateProfile">
-    <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="changePassword" aria-hidden="true">
+    <div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="updateProfile" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h3 class="modal-title">
+                    Update profile
+                </h3>
                 <div class="modal-body">
-                    {{> atForm state="changePwd" }}
+                    <form class="updateProfile"
+                          name="updateProfile">
+                        <label for="firstName">
+                            First name:
+                        </label>
+                        <input type="text"
+                               id="firstName"
+                               name="firstName"
+                               value="{{currentUser.profile.firstName}}">
+                        <br>
+                        <label for="lastName">
+                            Last name:
+                        </label>
+                        <input type="text"
+                               id="lastName"
+                               name="lastName"
+                               value="{{currentUser.profile.lastName}}">
+                        <br>
+                        <label for="userCity">
+                           Location:
+                        </label>
+                        <select id="userCity"
+                                name="userCity">
+                            <option {{currentLocation "lviv"}} value="lviv">
+                                Lviv
+                            </option>
+                            <option {{currentLocation "odesa"}} value="odesa">
+                                Odesa
+                            </option>
+                            <option {{currentLocation "dnipro"}} value="dnipro">
+                                Dnipro
+                            </option>
+                            <option {{currentLocation "kyiv"}} value="kyiv">
+                                Kyiv
+                            </option>
+                        </select>
+                        <br>
+                        <button type="button"
+                                class="btn btn-secondary btn-sm"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit"
+                                class="btn btn-primary btn-sm">
+                            Save changes
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
