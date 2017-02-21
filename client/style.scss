@@ -1,5 +1,5 @@
 body {
-  background-color: #3c7676;
+  background-color: #407f7f;
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -26,6 +26,11 @@ body {
       padding: 10px 20px;
       border-right: 2px solid #777;
       color: #777;
+
+      i {
+        font-size: 20px;
+        margin-left: 5px;
+      }
     }
 
     .location-name {
@@ -53,7 +58,7 @@ body {
     }
 
     span {
-      margin: auto 15px;
+      margin: auto 10px;
     }
   }
 
@@ -79,7 +84,7 @@ body {
 
   .new-message-container {
     position: fixed;
-    bottom: 0;
+    bottom: 30px;
     width: 100%;
   }
 
@@ -137,7 +142,6 @@ body {
 
   .newMessage,
   .user-greeting {
-    margin: 20px;
 
     input[type="text"] {
       padding: 20px 10px;
@@ -153,6 +157,11 @@ body {
       &:focus {
         outline: 0;
       }
+    }
+
+    .greeting-username {
+      border-right: 2px solid #777;
+      padding: 13px 20px 10px 0;
     }
   }
 
@@ -179,6 +188,7 @@ body {
       color: #8b0000;
       font-style: italic;
       font-weight: 600;
+      text-align: center;
     }
 
     .at-pwd-form .btn-default {
@@ -205,7 +215,7 @@ body {
     background-color: #f8f8f8;
     border: 3px solid #bcbcbc;
     border-radius: 7px;;
-    margin-top: 50px;
+    margin-top: 75px;
     padding: 30px 0;
 
     .at-title, h3 {
@@ -236,5 +246,16 @@ body {
         width: 350px;
       }
     }
+
+   .at-pwd-form .btn-default,
+   .updateProfile .btn-default {
+     background-color: #3c7676;
+     color: #fff;
+     border-radius: 5px;
+
+     &:focus {
+       outline: none;
+     }
+   }
   }
 }

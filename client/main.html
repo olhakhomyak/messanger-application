@@ -5,20 +5,20 @@
 <body>
     <nav class="navbar navbar-default">
         <h4 class="brand display-inline">
-            Messanger
+            Messanger <i class="fa fa-envelope" aria-hidden="true"></i>
         </h4>
 
         {{#if currentUser}}
             <div class="display-inline user-greeting">
-                Welcome, {{currentUser.profile.firstName}} {{currentUser.profile.lastName}}.
-                Your current location is <span class="location-name">{{currentUser.profile.city}}.</span>
+                <span class="greeting-username">Welcome, {{currentUser.profile.firstName}} {{currentUser.profile.lastName}}</span>
+                <span class="greeting-userLocation">Your current location is <span class="location-name">{{currentUser.profile.city}}</span></span>
             </div>
             <ul class="nav pull-right display-inline">
                 <li class="logout">
                     Logout
                 </li>
             </ul>
-            <ul class="nav  pull-right display-inline">
+            <ul class="nav pull-right display-inline">
                 <li class="dropdown account-dropdown">
                     <span class="dropdown-toggle account-menu"
                           data-toggle="dropdown">
