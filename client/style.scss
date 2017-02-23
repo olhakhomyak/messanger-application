@@ -84,7 +84,7 @@ body {
 
   .new-message-container {
     position: fixed;
-    bottom: 30px;
+    bottom: 50px;
     width: 100%;
   }
 
@@ -144,7 +144,6 @@ body {
   .user-greeting {
 
     input[type="text"] {
-      padding: 20px 10px;
       background: transparent;
       border: none;
       border-radius: 0;
