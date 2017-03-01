@@ -1,11 +1,4 @@
 if (Meteor.isClient) {
-    Meteor.subscribe("messages");
-
-    Template.body.helpers({
-        messages: function () {
-            return Messages.find();
-        }
-    });
 
     Template.body.events({
         'submit .newMessage' : function (event) {
